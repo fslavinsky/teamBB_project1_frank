@@ -14,7 +14,7 @@
  *
  */
 public class Wrangle {
-  private static CourseReading readingToPass; // the object/value added to HashTableMap
+  private static CourseReading readingToPass; // the object / value added to HashTableMap
 
   /**
    * @param isbn - the ISBN of the book to be added to CourseReading object which will in turn be
