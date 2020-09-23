@@ -17,8 +17,9 @@ public class Wrangle {
   private static CourseReading readingToPass; // the object/value added to HashTableMap
 
   /**
-   * @param isbn
-   * @return
+   * @param isbn - the ISBN of the book to be added to CourseReading object which will in turn be
+   *             the value of the key-value pair added to HashTableMap
+   * @return - true if valid ISBN, false if not TODO look into if it already exists in the table
    */
   public static boolean setISBN(int isbn) {
     Integer ISBN = (Integer) isbn;
@@ -26,15 +27,16 @@ public class Wrangle {
       return false;
     if (String.valueOf(ISBN).length() != 9)
       return false;
-    // TODO check if ISBN already exists in the table??
+    // TODO Do I need to check if ISBN already exists in the table at this point??
     resetReading();
     readingToPass.setISBN(ISBN);
     return true;
   }
 
   /**
-   * @param title
-   * @return
+   * @param title - Title of the book to be added to CourseReading object which will in turn be the
+   *              value of the key-value pair added to HashTableMap
+   * @return true if valid book title, false if not
    */
   public static boolean setTitle(String title) {
     if (!(title instanceof String))
@@ -44,8 +46,9 @@ public class Wrangle {
   }
 
   /**
-   * @param course
-   * @return
+   * @param course - course associated with the book to be added to CourseReading object which will
+   *               in turn be the value of the key-value pair added to HashTableMap
+   * @return true if course was of correct form and added to CourseReading object to be put.
    */
   public static boolean setCourse(String course) {
     if (!(course instanceof String))
@@ -55,14 +58,14 @@ public class Wrangle {
   }
 
   /**
-   * @return
+   * @return the CourseReading to be set as the value
    */
   public static CourseReading value() {
     return readingToPass;
   }
 
   /**
-   * @return
+   * @return the ISBN to be set as the key
    */
   public static Integer key() {
     return readingToPass.getISBN();
@@ -75,25 +78,23 @@ public class Wrangle {
   private static void resetReading() {
     readingToPass = new CourseReading();
   }
-
-//   /**
-//   * I have included this method if you wish to see the functionality of Wrangle, CourseReading,
-//   and
-//   * your HashTableMap.
-//   */
-//   public static void main(String[] args) {
-//   HashTableMap<Integer, CourseReading> table = new HashTableMap<Integer, CourseReading>();
-//   Wrangle.setISBN(898989899); // in final product, the param would come from user input
-//   Wrangle.setTitle("Harry Potter"); // *see above comment*
-//   Wrangle.setCourse("English 345"); // *see above comment*
-//   table.put(Wrangle.key(), Wrangle.value()); // use staic methods to get the key and value passed
-//   Wrangle.setISBN(454545454); // New CourseReading to add
-//   Wrangle.setTitle("LOTR");
-//   Wrangle.setCourse("English 745");
-//   table.put(Wrangle.key(), Wrangle.value());
-//   System.out.println(table.get(898989899).getBookTitle()); // should return "Harry Potter"
-//   System.out.println(table.get(454545454).getInfo()); // should return "Title: LOTR\nClass:
-//   // English 745"
-//   }
-
+  // /**
+  // * I have included this method if you wish to see the functionality of Wrangle, CourseReading,
+  // and
+  // * your HashTableMap.
+  // */
+  // public static void main(String[] args) {
+  // HashTableMap<Integer, CourseReading> table = new HashTableMap<Integer, CourseReading>();
+  // Wrangle.setISBN(898989899); // in final product, the param would come from user input
+  // Wrangle.setTitle("Harry Potter"); // *see above comment*
+  // Wrangle.setCourse("English 345"); // *see above comment*
+  // table.put(Wrangle.key(), Wrangle.value()); // use staic methods to get the key and value passed
+  // Wrangle.setISBN(454545454); // New CourseReading to add
+  // Wrangle.setTitle("LOTR");
+  // Wrangle.setCourse("English 745");
+  // table.put(Wrangle.key(), Wrangle.value());
+  // System.out.println(table.get(898989899).getBookTitle()); // should return "Harry Potter"
+  // System.out.println(table.get(454545454).getInfo()); // should return "Title: LOTR\nClass:
+  // // English 745"
+  // }
 }
